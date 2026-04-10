@@ -11,7 +11,6 @@ class AppTitle extends StatefulWidget {
 }
 
 class _AppTitleState extends State<AppTitle> {
-  String image = "images/pokeball.png";
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +31,7 @@ class _AppTitleState extends State<AppTitle> {
           Align(
             alignment: Alignment.topRight,
             child: Image.asset(
-              image,
+              Constants.image,
               // height: 100.w, //h de yazılabilir ama eşit olması için bu şekilde yazmalıyız
               //width: 100.w, //screenutilden bolayı bunlar aslında orandır 412 de 100 se 360 da onun oranında olur
               width: ScreenUtil().orientation == Orientation.portrait

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:poke_dex/widget/pokemon_item.dart';
 
 import '../model/pokemon_model.dart';
 import '../services/pokedex_api.dart';
@@ -26,12 +28,13 @@ class _PokemonListState extends State<PokemonList> {
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           List<PokemonModel> _pokeList = snapshot.data!;
-          return ListView.builder(
+          return GridView.builder(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: ScreenUtil().orientation==Orientation.portrait?2:3),
             itemCount: _pokeList.length,
             itemBuilder: (context, index) {
               var poke = _pokeList[index];
-              return ListTile(title: Text(poke.name.toString()));
-            },
+              return PokemonItem(pokemon: poke);
+            }, 
           );
         } else if (snapshot.hasError) {
           return const Center(child: Text("Hata verdi"));
