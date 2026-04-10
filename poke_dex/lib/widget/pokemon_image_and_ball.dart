@@ -10,7 +10,6 @@ class PokemonImageAndBall extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    debugPrint(pokemon.img);
     return Stack(
       children: [
         Align(
@@ -20,6 +19,7 @@ class PokemonImageAndBall extends StatelessWidget {
           alignment: Alignment.bottomRight,
           child: CachedNetworkImage(imageUrl: pokemon.img ?? "",
           fit: BoxFit.fitHeight,
+          errorWidget: (context, url, error) => Icon(Icons.ac_unit),
           placeholder: (context, url) => CircularProgressIndicator(color: Colors.black45,),
             width: UIHelper.calculatePokeImgAndBall(),
             height: UIHelper.calculatePokeImgAndBall(),

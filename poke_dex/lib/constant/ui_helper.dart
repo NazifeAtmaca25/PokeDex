@@ -17,6 +17,14 @@ class UIHelper {
     }
   }
 
+  static EdgeInsets getIconPadding() {
+    if (ScreenUtil().orientation == Orientation.portrait) {
+      return EdgeInsets.all(12.h);
+    } else {
+      return EdgeInsets.all(8.w);
+    }
+  }
+
   static final Map<String, Color> _typeColorMap = {
     'Grass': Colors.green,
     'Fire': Colors.redAccent,
