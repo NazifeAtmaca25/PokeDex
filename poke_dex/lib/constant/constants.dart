@@ -7,7 +7,6 @@ class Constants {
   static const String title = "Pokemon";
   static const String image = "images/pokeball.png";
 
-
   static TextStyle getTitleTextStyle() {
     return TextStyle(
       color: Colors.white,
@@ -16,26 +15,39 @@ class Constants {
     );
   }
 
-  static TextStyle getPokemonNameTextStyle(){
+  static TextStyle getPokemonNameTextStyle() {
     return TextStyle(
       color: Colors.white,
       fontWeight: FontWeight.bold,
-      fontSize: _calculateSize(22)
+      fontSize: _calculateSize(20),
     );
   }
 
-  static TextStyle getTypeChipTextStyle(){
+  static TextStyle getTypeChipTextStyle() {
+    return TextStyle(color: Colors.white, fontSize: _calculateSize(20));
+  }
+
+  static TextStyle getPokeInfoLabelTextStyle() {
     return TextStyle(
-      color: Colors.white,
-      fontSize: _calculateSize(20)
+      fontSize: _calculateSize(20),
+      fontWeight: FontWeight.bold,
+      color: Colors.black,
     );
   }
 
-  static double _calculateSize(int size){
-    if(ScreenUtil().orientation==Orientation.portrait){
+  static TextStyle getPokeInfoTextStyle() {
+    return TextStyle(
+      fontSize: _calculateSize(20),
+      fontWeight: FontWeight.bold,
+      color: Colors.black,
+    );
+  }
+
+  static double _calculateSize(int size) {
+    if (ScreenUtil().orientation == Orientation.portrait) {
       return size.sp;
-    }else{
-      return (size*1.5).sp;
+    } else {
+      return (size * 0.5).sp;
     }
   }
 }

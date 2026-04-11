@@ -6,6 +6,7 @@ import 'package:poke_dex/model/pokemon_model.dart';
 
 class PokemonImageAndBall extends StatelessWidget {
   final PokemonModel pokemon;
+
   PokemonImageAndBall({super.key, required this.pokemon});
 
   @override
@@ -14,17 +15,28 @@ class PokemonImageAndBall extends StatelessWidget {
       children: [
         Align(
           alignment: Alignment.bottomRight,
-            child: Image.asset(Constants.image,fit: BoxFit.fitHeight, height: UIHelper.calculatePokeImgAndBall(),width: UIHelper.calculatePokeImgAndBall(),)),
+          child: Image.asset(
+            Constants.image,
+            fit: BoxFit.fitHeight,
+            height: UIHelper.calculatePokeImgAndBall(),
+            width: UIHelper.calculatePokeImgAndBall(),
+          ),
+        ),
         Align(
           alignment: Alignment.bottomRight,
-          child: CachedNetworkImage(imageUrl: pokemon.img ?? "",
-          fit: BoxFit.fitHeight,
-          errorWidget: (context, url, error) => Icon(Icons.ac_unit),
-          placeholder: (context, url) => CircularProgressIndicator(color: Colors.black45,),
-            width: UIHelper.calculatePokeImgAndBall(),
-            height: UIHelper.calculatePokeImgAndBall(),
+          child: Hero(
+            tag: pokemon.id!,
+            child: CachedNetworkImage(
+              imageUrl: pokemon.img ?? "",
+              fit: BoxFit.fitHeight,
+              errorWidget: (context, url, error) => Icon(Icons.ac_unit),
+              placeholder: (context, url) =>
+                  CircularProgressIndicator(color: Colors.black45),
+              width: UIHelper.calculatePokeImgAndBall(),
+              height: UIHelper.calculatePokeImgAndBall(),
+            ),
           ),
-        )
+        ),
       ],
     );
   }

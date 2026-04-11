@@ -92,6 +92,11 @@ class Evolution {
   String? num;
   String? name;
 
+  @override
+  String toString() {
+    return '$name';
+  }
+
   Evolution({
     this.num,
     this.name,
